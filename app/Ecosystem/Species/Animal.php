@@ -43,6 +43,8 @@ Class Animal {
                 $animal->current_health = self::HEALTH_MAX_CAP;
             }
 
+            $animal->status = $this->calculateAnimalStatus( $animal );
+
             $animal->save();
         }
 
