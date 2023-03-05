@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string("type");
             $table->string("name");
-            $table->double("current_health")->default(100);
-            $table->double("previous_health")->default(100);
+            $table->float("current_health")->default(100);
+            $table->float("previous_health")->default(100);
             $table->string("status")->default("Alive");
             $table->dateTime("zoo_creation_time");
             $table->integer("life_span")->default(0);

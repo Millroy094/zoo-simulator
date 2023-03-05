@@ -67,7 +67,7 @@ The aniamls are shown on an animal health card and are sorted based on status i.
 
 ## Extras
 
-The code also has some unit tests that are run on the four api calls:
+The code also has some feature tests that are run on the four api calls:
 
 1. api/create
 2. api/destroy

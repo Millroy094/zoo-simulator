@@ -12,7 +12,7 @@ class ZooControllerTest extends TestCase {
     */
 
     public function test_create_fifteen_animals_in_zoo(): void {
-        $response = $this->call('POST','/api/create' );
+        $response = $this->call('POST','/api/zoo/create' );
         $response->assertStatus( 201 );
 
 
@@ -24,7 +24,7 @@ class ZooControllerTest extends TestCase {
     }
 
     public function test_increment_hour_in_zoo(): void {
-        $response = $this->call('PUT','/api/increment-hour' );
+        $response = $this->call('PUT','/api/zoo/increment-hour' );
         $response->assertStatus( 200 );
 
         $currentZooTime = $response->decodeResponseJson()['current_time'];
@@ -48,7 +48,7 @@ class ZooControllerTest extends TestCase {
     }
 
     public function test_feed_zoo(): void {
-        $response = $this->call('PUT','/api/feed' );
+        $response = $this->call('PUT','/api/zoo/feed' );
         $response->assertStatus( 200 );
 
         $animals = $response->decodeResponseJson()['animals'];
@@ -61,7 +61,7 @@ class ZooControllerTest extends TestCase {
     }
 
     public function test_remove_all_animals_in_zoo(): void {
-        $response = $this->call('DELETE','/api/destroy' );
+        $response = $this->call('DELETE','/api/zoo/destroy' );
         $response->assertStatus( 200 );
 
         $animals = $response->decodeResponseJson()['animals'];
