@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Carbon\Carbon;
+use App\Ecosystem\Species\Animal;
 
 class ZooControllerTest extends TestCase {
     /**
@@ -45,8 +46,8 @@ class ZooControllerTest extends TestCase {
 
         if ($healthDifference !== 0 ) {
             // Animal health was decremented by a number between 0 - 20
-            $this->assertGreaterThanOrEqual(0, $healthDifference);
-            $this->assertLessThanOrEqual(20, $healthDifference);
+            $this->assertGreaterThanOrEqual(Animal::MIN_HEALTH_REDUCTION, $healthDifference);
+            $this->assertLessThanOrEqual(Animal::MAX_HEALTH_REDUCTION, $healthDifference);
         }
 
     }
@@ -63,8 +64,8 @@ class ZooControllerTest extends TestCase {
 
         if ($healthDifference !== 0 ) {
              // Animal health was incremented by a number between 10 - 25
-            $this->assertGreaterThanOrEqual(10, $healthDifference);
-            $this->assertLessThanOrEqual(25, $healthDifference);
+            $this->assertGreaterThanOrEqual(Animal::MIN_HEALTH_INCEMENT, $healthDifference);
+            $this->assertLessThanOrEqual(Animal::MAX_HEALTH_INCEMENT, $healthDifference);
         }
     
     }
