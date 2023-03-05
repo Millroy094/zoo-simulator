@@ -6,6 +6,7 @@ import {
     Typography,
     Avatar,
 } from "@mui/material";
+import { Favorite, HeartBroken, MonitorHeart } from "@mui/icons-material/";
 import { red, green, orange } from "@mui/material/colors";
 import { CANT_WALK, DEAD } from "../constants/animal-status";
 
@@ -19,6 +20,14 @@ function AnimalHealthCard(props) {
         statusColor = orange[500];
     } else if (status === DEAD) {
         statusColor = red[500];
+    }
+
+    let statusIcon = <Favorite color="success" />;
+
+    if (status === CANT_WALK) {
+        statusIcon = <MonitorHeart color="warning" />;
+    } else if (status === DEAD) {
+        statusIcon = <HeartBroken color="error" />;
     }
 
     return (
@@ -36,6 +45,7 @@ function AnimalHealthCard(props) {
                 }
                 title={name}
                 subheader={`Status: ${status}`}
+                action={statusIcon}
             />
             <CardContent>
                 <Typography>{`Health: ${current_health}/100`}</Typography>

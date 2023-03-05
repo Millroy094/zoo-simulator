@@ -56,7 +56,7 @@ The aniamls are shown on an animal health card and are sorted based on status i.
 2. Php composer.
 3. Npm or yarn (I've used yarn).
 
-### instructions
+### Instructions
 
 1. Initially clone the git repo or download the source code.
 2. Run `composer install` from the console, this will load all the laravel dependencies.
