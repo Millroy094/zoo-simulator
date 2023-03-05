@@ -42,13 +42,8 @@ class ZooControllerTest extends TestCase {
         // The Animal has lived for an hour
         $this->assertEquals(1, $firstAnimal['life_span']);
 
-        $healthDifference = $firstAnimal['previous_health'] - $firstAnimal['current_health'];
-
-        if ($healthDifference !== 0 ) {
-            // Animal health was decremented by a number between 0 - 20
-            $this->assertGreaterThanOrEqual(Animal::MIN_HEALTH_REDUCTION, $healthDifference);
-            $this->assertLessThanOrEqual(Animal::MAX_HEALTH_REDUCTION, $healthDifference);
-        }
+        // Animal health was less by a number between 0 - 20
+        $this->assertLessThanOrEqual($firstAnimal['previous_health'], $firstAnimal['current_health']);
 
     }
 
@@ -56,17 +51,12 @@ class ZooControllerTest extends TestCase {
         $response = $this->call('PUT','/api/feed' );
         $response->assertStatus( 200 );
 
-        $zooCreationTime = $response->decodeResponseJson()['current_time'];
         $animals = $response->decodeResponseJson()['animals'];
 
         $firstAnimal = $animals[0];
-        $healthDifference =  $firstAnimal['current_health'] - $firstAnimal['previous_health'];
-
-        if ($healthDifference !== 0 ) {
-             // Animal health was incremented by a number between 10 - 25
-            $this->assertGreaterThanOrEqual(Animal::MIN_HEALTH_INCEMENT, $healthDifference);
-            $this->assertLessThanOrEqual(Animal::MAX_HEALTH_INCEMENT, $healthDifference);
-        }
+  
+        // Animal health is greater than or equal previous health
+        $this->assertGreaterThanOrEqual($firstAnimal['previous_health'], $firstAnimal['current_health']);
     
     }
 

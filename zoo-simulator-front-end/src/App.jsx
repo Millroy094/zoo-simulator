@@ -19,12 +19,11 @@ import {
 
 import apiCreateZoo from "./api/api-create-zoo";
 import apiFeedZoo from "./api/api-feed-zoo";
-import apiDeleteZoo from "./api/api-delete-zoo";
 import apiIncrementHourAtZoo from "./api/api-increment-hour-at-zoo";
 
 import { HTTP_CREATED, HTTP_OK } from "./constants/http-status";
 import AnimalHealthCard from "./components/animal-health-card";
-import { CANT_WALK, STATUS_ORDER } from "./constants/animal-status";
+import { STATUS_ORDER } from "./constants/animal-status";
 
 function App() {
     const isMounted = useRef(true);
