@@ -2,7 +2,7 @@ import axios from "axios";
 
 const incrementHourAtZoo = async () => {
     const response = await axios.put(
-        `${import.meta.env.VITE_BASE_URL}/api/increment-hour`
+        `${import.meta.env.VITE_BASE_URL}/api/zoo/increment-hour`
     );
     return response;
 };

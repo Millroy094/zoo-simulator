@@ -19,7 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/create', [ZooController::class, 'createZoo']);
-Route::delete('/destroy', [ZooController::class, 'destroyZoo']);
-Route::put('/increment-hour', [ZooController::class, 'incrementHourAtZoo']);
-Route::put('/feed', [ZooController::class, 'feedZoo']);
+Route::group(['prefix'=>'zoo','as'=>'zoo.'], function(){
+    Route::post('/create', [ZooController::class, 'createZoo']);
+    Route::delete('/destroy', [ZooController::class, 'destroyZoo']);
+    Route::put('/increment-hour', [ZooController::class, 'incrementHourAtZoo']);
+    Route::put('/feed', [ZooController::class, 'feedZoo']);
+});
+
+
