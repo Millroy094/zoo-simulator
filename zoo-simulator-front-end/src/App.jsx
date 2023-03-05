@@ -119,9 +119,9 @@ function App() {
                                         xs={12}
                                         justifyContent="center"
                                     >
-                                        <Tooltip title="Add an hour">
+                                        <Tooltip title="Add an hour to zoo">
                                             <IconButton
-                                                aria-label="add an hour"
+                                                aria-label="add an hour to zoo"
                                                 color="error"
                                                 onClick={
                                                     incrementZooTimeByAnHour
@@ -130,18 +130,18 @@ function App() {
                                                 <MoreTime />
                                             </IconButton>
                                         </Tooltip>
-                                        <Tooltip title="Feed">
+                                        <Tooltip title="Feed zoo">
                                             <IconButton
-                                                aria-label="feed"
+                                                aria-label="feed zoo"
                                                 color="success"
                                                 onClick={feedAnimals}
                                             >
                                                 <LunchDining />
                                             </IconButton>
                                         </Tooltip>
-                                        <Tooltip title="Reset Zoo">
+                                        <Tooltip title="Reset zoo">
                                             <IconButton
-                                                aria-label="reset"
+                                                aria-label="reset zoo"
                                                 color="info"
                                                 onClick={createZoo}
                                             >
