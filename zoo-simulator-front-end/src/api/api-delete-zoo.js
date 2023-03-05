@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const deleteZoo = async () => {
-    const response = await axios.delete("http://localhost:8000/api/destroy");
+    const response = await axios.delete(
+        `${import.meta.env.VITE_BASE_URL}/api/destroy`
+    );
     return response;
 };
 

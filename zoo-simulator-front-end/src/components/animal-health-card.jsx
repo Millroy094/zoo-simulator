@@ -39,7 +39,9 @@ function AnimalHealthCard(props) {
             />
             <CardContent>
                 <Typography>{`Health: ${current_health}/100`}</Typography>
-                <Typography>{`Life Span: ${life_span}`}</Typography>
+                <Typography>{`Life Span: ${life_span} ${
+                    life_span > 1 ? "Hrs" : "Hr"
+                }`}</Typography>
             </CardContent>
         </Card>
     );
