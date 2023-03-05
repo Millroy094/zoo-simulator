@@ -1,6 +1,6 @@
 import moment from "moment/moment";
 import { useState, useEffect, useRef } from "react";
-import { Button, Container, Grid, Paper } from "@mui/material";
+import { Button, Container, Grid, Paper, Card } from "@mui/material";
 import apiCreateZoo from "./api/api-create-zoo";
 import apiFeedZoo from "./api/api-feed-zoo";
 import apiDeleteZoo from "./api/api-delete-zoo";
@@ -67,26 +67,41 @@ function App() {
     };
 
     return (
-        <Container>
+        <Container maxWidth="xl">
             <Paper>
-                <Grid container>
-                    <Grid item xs={12}>
-                        {zooTime && zooTime.format("DD MM YYYY HH:MM")}
+                <Grid container spacing={2}>
+                    <Grid item xs={12} container justifyContent="center">
+                        {zooTime && (
+                            <Card sx={{ padding: 2 }}>
+                                {zooTime.format("DD MM YYYY HH:MM")}
+                            </Card>
+                        )}
                     </Grid>
-                    <Grid container item xs={12}>
+                    <Grid container item xs={12} spacing={2}>
                         {animals.map((animal) => (
-                            <Grid
-                                key={animal.id}
-                                item
-                                xs={2}
-                            >{`${animal.name} - ${animal.current_health}/100`}</Grid>
+                            <Grid key={animal.id} item xs={2}>
+                                <Card sx={{ padding: 2 }}>
+                                    {`${animal.name} - ${animal.current_health}
+                                    /100`}
+                                </Card>
+                            </Grid>
                         ))}
                     </Grid>
-                    <Grid container item xs={12}>
-                        <Button onClick={incrementZooTimeByAnHour}>
+                    <Grid container item xs={12} justifyContent={"center"}>
+                        <Button
+                            sx={{ margin: 1 }}
+                            onClick={incrementZooTimeByAnHour}
+                            variant="contained"
+                        >
                             Add an Hour
                         </Button>
-                        <Button onClick={feedAnimals}>feed zoo</Button>
+                        <Button
+                            sx={{ margin: 1 }}
+                            onClick={feedAnimals}
+                            variant="contained"
+                        >
+                            feed zoo
+                        </Button>
                     </Grid>
                 </Grid>
             </Paper>
