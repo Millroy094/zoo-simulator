@@ -64,3 +64,14 @@ The aniamls are shown on an animal health card and are sorted based on status i.
 4. Run `php artisan serve` to let laravel listen on port `8000` and that's the backend ready to serve api calls.
 5. To prepare the frontend open the `zoo-simulator-front-end` and run `yarn` this will install the frontend dependencies.
 6. Finally run `yarn dev` which will start the frontend to start zoo simulator GUI.
+
+## Extras
+
+The code also has some unit tests that are run on the four api calls:
+
+1. api/create
+2. api/destroy
+3. api/increment-hour
+4. api/feed
+
+These test can be run using php artisan test.
