@@ -29,6 +29,7 @@ Class Animal {
 
     public function feed($animal) : void {
         
+        // This is to make sure that there is only one random health increment for a animal of a certain type for a given feed cycle.
         if (!isset($this->increment)) {
             $this->increment = rand( self::MIN_HEALTH_INCEMENT, self::MAX_HEALTH_INCEMENT );
         }
